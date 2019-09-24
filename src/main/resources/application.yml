@@ -1,0 +1,20 @@
+server:
+  port: 9898
+spring:
+  application:
+    name: hikariCP_JDBC_Demo
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/girls?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+#      pool-name: HikariCP===========
+      connection-timeout: 10000
+
+
+# Hikari will use the above plus the following to setup connection pooling
