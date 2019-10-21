@@ -6,15 +6,20 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/girls?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://192.168.8.3:3306/mn_alarm?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      minimum-idle: 5
-      maximum-pool-size: 15
+      minimum-idle: 1
+      maximum-pool-size: 5
       auto-commit: true
       idle-timeout: 30000
 #      pool-name: HikariCP===========
       connection-timeout: 10000
-
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.hikaricpdemo.entity
+  configuration:
+    map-underscore-to-camel-case: true  #驼峰命名
 
 # Hikari will use the above plus the following to setup connection pooling
